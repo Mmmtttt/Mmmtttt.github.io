@@ -3,6 +3,59 @@ import StyleEditor from './styleEditor';
 import Heart from './heart';
 import HeartRain from './heartRain';
 
+
+class Gallery extends React.Component {
+  state = {
+    currentImageIndex: 0,
+  };
+
+  images = [
+    require('../1.jpg'),
+    require('../1.jpg'),
+
+  ];
+
+  componentDidMount() {
+    this.startImageSlideshow();
+  }
+
+  startImageSlideshow = () => {
+    this.slideshowInterval = setInterval(() => {
+      this.showNextImage();
+    }, 5000); // Change the interval as needed
+  };
+
+  showNextImage = () => {
+    this.setState((prevState) => ({
+      currentImageIndex: (prevState.currentImageIndex + 1) % this.images.length,
+    }));
+  };
+
+  componentWillUnmount() {
+    clearInterval(this.slideshowInterval);
+  }
+
+  render() {
+    const { currentImageIndex } = this.state;
+
+    return (
+      <div className="gallery">
+        {this.images.map((image, index) => (
+          <img
+            key={index}
+            src={image}
+            alt={`Image ${index + 1}`}
+            style={{ opacity: index === currentImageIndex ? 1 : 0 }}
+            className={`gallery-img ${index === currentImageIndex ? 'active' : ''} ${index !== currentImageIndex ? 'blur' : ''}`}
+          />
+        ))}
+      </div>
+    );
+  }
+}
+
+
+
 const isPc = (function () {
     var userAgentInfo = navigator.userAgent;
     var Agents = ["Android", "iPhone",
@@ -25,6 +78,7 @@ export default class App extends React.Component {
         `/*
   Hi。小明同学！
   
+  
  嗯。说起来手机和电脑还得区分一下。
  你现在用的是。。。${isPc ? '电脑' : '手机'}
 */
@@ -38,6 +92,7 @@ export default class App extends React.Component {
 body, html {
   color: #fff;
   background-color: darkslategray;
+  background-image: url('../background.jpg');
 }
 
 /* 文字太近了 */
@@ -50,6 +105,7 @@ body, html {
   font-size: 14px;
   line-height: 1.5;
   padding: 10px;
+  font-family: 'KaiTi', sans-serif;
 }
 
 /* 这些代码颜色都一样。加点儿高亮区别来 */
@@ -95,7 +151,7 @@ html{
   -webkit-transform-origin: 50% 0% 0;`}
 
   /* 加上我们的照片 */
-  background-image: url('1.jpg');
+  background-image: url('../1.jpg');
   
   /* 设置背景图片的大小适应容器 */
   background-size: cover;
@@ -159,6 +215,8 @@ html{
     opacity: 0
   }
 }
+
+
 
 .bounce {
   opacity: 0.2;
@@ -248,6 +306,11 @@ html{
             {
                 heartRains.map(item => <HeartRain num={item.rainNum} key={item.time}/>)
             }
+            {finished && (
+              <div className="gallery-container">
+                <Gallery />
+              </div>
+            )}
         </div>;
     }
 }

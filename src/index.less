@@ -18,6 +18,41 @@ body {
 .rain {
     position: absolute;
 }
+
+.fade-in-out {
+    transition: opacity 1s ease-in-out;
+  }
+
+  .gallery-container {
+    position: fixed;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    z-index: 9999; /* Ensure the gallery is on top of other elements */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .gallery img {
+    width: 800px; /* Set the desired width */
+    height: 800px; /* Set the desired height */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    filter: blur(0px); /* Add the desired blur effect */
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+    opacity: 0; /* Start with 0 opacity */
+    transition: opacity 1s ease-in-out;
+  }
+  .gallery img.active {
+    opacity: 1; /* Make the active image fully visible */
+  }
+  .gallery img.blur {
+    filter: blur(8px); /* Apply the blur effect only to images with .blur class */
+  }
 // .styleEditor {
 //     overflow: scroll;
 //     max-height: 50vh;
