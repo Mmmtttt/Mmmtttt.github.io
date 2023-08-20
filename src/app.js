@@ -11,7 +11,10 @@ class Gallery extends React.Component {
 
   images = [
     require('../1.jpg'),
-    require('../1.jpg'),
+    require('../2.jpg'),
+    require('../3.jpg'),
+    require('../4.jpg'),
+    require('../5.jpg'),
 
   ];
 
@@ -77,7 +80,7 @@ export default class App extends React.Component {
     fullStyle = [
         `/*
   Hi。小明同学！
-  
+
   
  嗯。说起来手机和电脑还得区分一下。
  你现在用的是。。。${isPc ? '电脑' : '手机'}
@@ -92,7 +95,7 @@ export default class App extends React.Component {
 body, html {
   color: #fff;
   background-color: darkslategray;
-  background-image: url('../background.jpg');
+  background-image: url('background.jpg');
 }
 
 /* 文字太近了 */
@@ -151,7 +154,7 @@ html{
   -webkit-transform-origin: 50% 0% 0;`}
 
   /* 加上我们的照片 */
-  background-image: url('../1.jpg');
+  background-image: url('1.jpg');
   
   /* 设置背景图片的大小适应容器 */
   background-size: cover;
