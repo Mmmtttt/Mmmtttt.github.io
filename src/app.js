@@ -23,13 +23,10 @@ export default class App extends React.Component {
 
     fullStyle = [
         `/*
-* Hi。宝贝！
-* 这么久了。还没和宝贝说过我的工作呢！
-* 我是个前端工程师。俗称程序员。网页相关。
-* 如这个页面。就是个什么也没有的网页。
-* 我的工作就是给这种空白的页面加点儿东西。
-* 嗯。说起来手机和电脑还得区分一下。
-* 你现在用的是。。。${isPc ? '电脑' : '手机'}
+  Hi。小明同学！
+  
+ 嗯。说起来手机和电脑还得区分一下。
+ 你现在用的是。。。${isPc ? '电脑' : '手机'}
 */
 
 /* 首先给所有元素加上过渡效果 */
@@ -96,6 +93,21 @@ html{
   -webkit-transform: rotateX(10deg) translateZ(-100px);`}${ isPc ? '' :`
   transform-origin: 50% 0% 0;
   -webkit-transform-origin: 50% 0% 0;`}
+
+  /* 加上我们的照片 */
+  background-image: url('1.jpg');
+  
+  /* 设置背景图片的大小适应容器 */
+  background-size: cover;
+  
+  /* 设置背景图片的位置居中 */
+  background-position: center center;
+  
+  /* 允许背景图片滚动时显示 */
+  background-attachment: scroll;
+  
+  /* 设置背景颜色作为背景图片加载时的预览颜色 */
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 /* 画一个方块，当左心室和右心室 */
