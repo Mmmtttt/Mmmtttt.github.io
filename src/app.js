@@ -81,10 +81,23 @@ export default class App extends React.Component {
         `/*
   Hi。小明同学！
 
+  今天是七夕
+  是我们牵手的一个月零七天
+
+  你给我写的书信，我都有好好珍藏
+  每次读罢，总是心绪纷飞
+
+  我总想说点什么，写点什么
+  但我不善言辞，又拙于文笔
+
+  不如为你写一些代码
+  聊表心意
   
  嗯。说起来手机和电脑还得区分一下。
- 你现在用的是。。。${isPc ? '电脑' : '手机'}
+ 你现在用的是。。。   ${isPc ? '电脑' : '手机'}
 */
+
+
 
 /* 首先给所有元素加上过渡效果 */
 * {
@@ -108,7 +121,6 @@ body, html {
   font-size: 14px;
   line-height: 1.5;
   padding: 10px;
-  font-family: 'KaiTi', sans-serif;
 }
 
 /* 这些代码颜色都一样。加点儿高亮区别来 */
@@ -133,8 +145,7 @@ html{
 }
 
 /*
-* 宝贝，今天教你写代码。
-* 用代码画一个爱心。
+  亲爱的，再给你画一个小心心
 */
 
 /* 首先，来一个画板 */
@@ -162,11 +173,7 @@ html{
   /* 设置背景图片的位置居中 */
   background-position: center center;
   
-  /* 允许背景图片滚动时显示 */
-  background-attachment: scroll;
-  
-  /* 设置背景颜色作为背景图片加载时的预览颜色 */
-  background-color: rgba(255, 255, 255, 0.8);
+
 }
 
 /* 画一个方块，当左心室和右心室 */
@@ -226,8 +233,13 @@ html{
   animation: throb 1s infinite linear;
 }
 /*
-* Ok，完成！
-* 宝贝，七夕快乐！
+  OK，完成！
+
+
+
+
+  
+  我们的故事刚刚开始，要一直走下去哦！
 */
 
 `
